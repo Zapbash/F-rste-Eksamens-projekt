@@ -1,7 +1,7 @@
 ﻿namespace Første_Eksamens_projekt
 {
-    public class Class1
+    public class Event
     {
-         
+        kfkfk 
     }
 }
