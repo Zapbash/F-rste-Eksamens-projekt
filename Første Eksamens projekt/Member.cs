@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    internal class Member
+    public class Member
     {
       
 
