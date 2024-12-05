@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    internal class MemberRepo
+    public class MemberRepo
     {
         // Liste af alle members 
         public List<Member> Members = new List<Member>();
