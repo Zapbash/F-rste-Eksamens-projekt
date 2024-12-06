@@ -53,7 +53,7 @@ namespace Første_Eksamens_projekt
 		}
 
 		
-		public Boat UpdateEventRepo(Boat updatedBoat)
+		public Boat UpdateBoatRepo(Boat updatedBoat)
 		{
 			foreach (Boat existingBoat in boatList)
 			{

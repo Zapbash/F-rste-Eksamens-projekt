@@ -11,9 +11,9 @@ namespace Første_Eksamens_projekt
         // Liste af alle members 
         public List<Member> Members = new List<Member>();
         // Add en member til listen members
-        public void addMember(Member member) { Members.Add(member); }
+        public void AddMember(Member member) { Members.Add(member); }
         // Remove en member fra listen members
-        public void removeMember(Member member)
+        public void RemoveMember(Member member)
         {
             Members.Remove(member);
         } 

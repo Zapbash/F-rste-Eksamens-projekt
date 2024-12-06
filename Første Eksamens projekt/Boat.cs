@@ -21,7 +21,7 @@ namespace Første_Eksamens_projekt
         
 
            public Boat(int id, string boatType, string name, string boatModel,int sailNumber, double measurements,int yearOfConstruction)
-		{ 
+		   { 
             Id = id;
             BoatType= boatType; 
             
@@ -33,7 +33,7 @@ namespace Første_Eksamens_projekt
 
 
 
-		}
+		   } 
 
 		public override string ToString()
 		{
