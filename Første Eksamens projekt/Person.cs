@@ -22,5 +22,10 @@ namespace Første_Eksamens_projekt
             Email = email;
             BirthDay = birthDay;
         }
+
+        public override string ToString()
+        {
+            return $"{Id} {Name} {PhoneNumber} {Email} {BirthDay}";
+        }
     }
 }

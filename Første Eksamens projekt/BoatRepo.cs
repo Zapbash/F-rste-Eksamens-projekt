@@ -15,58 +15,51 @@ namespace Første_Eksamens_projekt
 		private List<Boat> boatList = new List<Boat>();
 
 		
-		public void Add(Boat boat)
+		public void AddBoat(Boat boats)
 		{
-			if (!boatList.Contains(boat))
+			if (!boatList.Contains(boats))
 			{
-				boatList.Add(boat);
+				boatList.Add(boats);
 			}
 		}
 
 	
-		public Boat Remove(Boat boat)
+		public Boat RemoveBoat(int id)
 		{
-			if (boatList.Remove(boat))
+			Boat boats = GetBoat(id);
+			if (boatList.Remove(boats))
 			{
-				return boat;
+				return boats;
 			}
 			return null!;
 		}
-
+		public Boat GetBoat(int id)
+		{
+			foreach (Boat boats in boatList)
+			{
+				if (boats.Id == id) return boats;
+			}
+			return null!;
+		}
 	
-		public List<Boat> GetAll()
+		public List<Boat> GetAllBoat()   // spørg angende om eks remove bare kan bruges eller om det skal hedde removeboat
 		{
-			return new List<Boat>(boatList); 
-		}
-
-		
-		public Boat SearchBoat(string name)
-		{
-			foreach (Boat boat in boatList)
-			{
-				if (boat.Name == name) 
-				{
-					return boat;
-				}
-			}
-			return null!;
-		}
+			return boatList;
+		}				
 
 		
 		public Boat UpdateBoatRepo(Boat updatedBoat)
 		{
-			foreach (Boat existingBoat in boatList)
-			{
-				if (existingBoat.Id == updatedBoat.Id) 
-				{
-					
-					existingBoat.Name = updatedBoat.Name;
-					existingBoat.BoatModel = updatedBoat.BoatModel;
-					existingBoat.SailNumber = updatedBoat.SailNumber;
-					existingBoat.Measurements = updatedBoat.Measurements;
-					existingBoat.YearOfConstruction = updatedBoat.YearOfConstruction;
-					return existingBoat; 
-				}
+			Boat NewBoat = GetBoat(updatedBoat.Id);
+			if(NewBoat != null)
+			{													
+					NewBoat.Name = updatedBoat.Name;
+					NewBoat.BoatModel = updatedBoat.BoatModel;
+					NewBoat.SailNumber = updatedBoat.SailNumber;
+					NewBoat.Measurements = updatedBoat.Measurements;
+					NewBoat.YearOfConstruction = updatedBoat.YearOfConstruction;
+					return NewBoat; 
+				
 			}
 			return null!; 
 	}

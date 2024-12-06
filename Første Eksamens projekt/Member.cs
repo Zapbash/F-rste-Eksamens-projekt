@@ -21,7 +21,7 @@ namespace Første_Eksamens_projekt
 
         public override string? ToString()
         {
-            return $"{Id} {Name}{PhoneNumber} {Email} {BirthDay}";
+            return $"{Id} {Name} {PhoneNumber} {Email} {BirthDay}";
         }
     }
 }

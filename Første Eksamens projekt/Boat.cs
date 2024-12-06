@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    public class Boat
+    public abstract class Boat
     {
         public int Id { get; set; }
 		public string BoatType {get;set;}
@@ -24,14 +24,11 @@ namespace Første_Eksamens_projekt
 		   { 
             Id = id;
             BoatType= boatType; 
-            
             Name=name;
             BoatModel = boatModel;
             SailNumber = sailNumber;
             Measurements = measurements;
             YearOfConstruction = yearOfConstruction;
-
-
 
 		   } 
 

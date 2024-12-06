@@ -8,46 +8,53 @@ namespace Første_Eksamens_projekt
 {
     public class MemberRepo
     {
-        // Liste af alle members 
-        public List<Member> Members = new List<Member>();
-        // Add en member til listen members
-        public void AddMember(Member member) { Members.Add(member); }
-        // Remove en member fra listen members
-        public void RemoveMember(Member member)
+         
+        public List<Member> memberList = new List<Member>();
+       
+        public void AddMember(Member members)
         {
-            Members.Remove(member);
+            if (!memberList.Contains(members)) memberList.Add(members);
+        }
+        
+        public Member RemoveMember(int id)
+        {
+            Member members = GetMember(id);
+            if (memberList.Remove(members))
+            {
+                return members;
+            }
+            return null!;
         } 
         // Read listen af alle members
         public List<Member> GetAllMembers()
         {
-            return Members;
+            return memberList;
         }
 
         //Find den enkelte member med id ?
         public Member GetMember(int id)
         {
-            foreach (var member in Members) //brug en foreach som løber listen igennem for at finde member med id ?
+            foreach (Member members in memberList) //brug en foreach som løber listen igennem for at finde member med id ?
             {
-                if (member.id == id)
-                {
-                    return member;
-                }
+                if (members.Id == id) return members;
+                
             }
-            return null; // Returner null, hvis medlemmet ikke findes
+            return null!; // Returner null, hvis medlemmet ikke findes
         }
          
         // UpdateMember 
-        public Member UpdateMember(int id, Member updated)
+        public Member UpdateMemberRepo(Member UpdatedMember)
         {
-            Member member = GetMember(id); // brug getmember metoden til at finde memberen
-            if (member != null) // hvis member findes opdater vi dette instansfelter
+            Member NewMember = GetMember(UpdatedMember.Id); // brug getmember metoden til at finde memberen
+            if (NewMember != null) // hvis member findes opdater vi dette instansfelter
             {
-                member.Name = updated.Name; 
-                member.Email = updated.Email;
-                member.Birthday = updated.Birthday; 
-                return member; // Returner det du har skrevet
+                NewMember.Name = UpdatedMember.Name; 
+                NewMember.Email = UpdatedMember.Email;
+                NewMember.PhoneNumber = UpdatedMember.PhoneNumber;
+                NewMember.BirthDay = UpdatedMember.BirthDay;
+                return NewMember; 
             }
-            return null; // Returner null, hvis member ikke findes
+            return null!; 
         }
     } 
 }
