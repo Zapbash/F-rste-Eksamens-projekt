@@ -6,27 +6,22 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    public class Member
+    public class Member : Person
     {
       
 
-        public int id { get; set; }
-        public string Name { get; set; }    
-        public string Email { get; set; }
-        public DateTime Birthday { get; set; } 
+       
 
-        public Member(int id, string name, string email, DateTime birthday)
+        public Member(int id, string name, int phoneNumber, string email, DateTime birthday) :base (id, name, phoneNumber, email, birthday)
         {
-            this.id = id;
-            Name = name;
-            Email = email;
-            this.Birthday = birthday;
+          
+            
         }
 
 
         public override string? ToString()
         {
-            return base.ToString();
+            return $"{Id} {Name}{PhoneNumber} {Email} {BirthDay}";
         }
     }
 }

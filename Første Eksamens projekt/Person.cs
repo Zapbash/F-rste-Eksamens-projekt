@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    public interface IPerson
+    public abstract class Person
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
         public int PhoneNumber { get; set; }
-
         public string Email { get; set; }
+        public DateTime BirthDay { get; set; }
 
-        public DateTime Birthday { get; set; }
-
-        public interface IPerson(int id)
+        public Person (int id, string name, int phoneNumber, string email, DateTime birthDay)
+        {
+            Id = id;
+            Name = name;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            BirthDay = birthDay;
+        }
     }
-
 }
