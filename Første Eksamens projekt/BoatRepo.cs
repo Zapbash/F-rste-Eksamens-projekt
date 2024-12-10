@@ -46,7 +46,14 @@ namespace Første_Eksamens_projekt
 		{
 			return boatList;  // Resturnere hele listen af boats
 		}				
-
+		public List<Boat> SearchBoat(string name)
+		{
+			List <Boat> boats = new List<Boat>();
+			foreach (Boat boats in boatList)
+			{
+				if(boat.name.Tol)
+			}
+		}
 		
 		public Boat UpdateBoatRepo(Boat updatedBoat) // Opdatere en boat som der eksitere i repository via dens id 
 		{

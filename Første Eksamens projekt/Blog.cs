@@ -37,16 +37,15 @@ namespace Første_Eksamens_projekt
         {
             return eventList;
         }
-        public Event SearchEvent(string title)  // en search metode som virker på en events title/ navn
-        {Event foundevent = null!;  // hvis foundevent er null (kan ikke finde event)
+        public List <Event> SearchEvent(string title)  // en search metode som virker på en events title/ navn
+        {
+            List<Event> result = new List<Event>();
+                    
              foreach (Event begivenhed in eventList)   // så løber den igennem hele event listen af begivenhed
              {
-                 if (begivenhed.Title == title) // hvis begivenhed i event er det samme som den title vi søger  så har den fundet den event som det blev søgt efter
-                 {
-                     foundevent = begivenhed;
-                 }
+                if (begivenhed.Title.ToLower().Contains(title.ToLower())) result.Add(begivenhed); // hvis begivenhed i event er det samme som den title vi søger  så har den fundet den event som det blev søgt efter, Tolover gør at stort eller småt skrift er ligemeget. 
              }
-            return foundevent;
+            return result;
         }
         public Event UpdateEventRepo(Event UpdatedEvent)  // vi kalder vores updater event for update event
         {
