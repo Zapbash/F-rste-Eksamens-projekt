@@ -11,24 +11,24 @@ namespace Første_Eksamens_projekt
          
         public List<Member> memberList = new List<Member>();
        
-        public void AddMember(Member members)
+        public void AddMember(Member members) // tilføjer en member til repository
         {
-            if (!memberList.Contains(members)) memberList.Add(members);
+            if (!memberList.Contains(members)) memberList.Add(members); // Tjekker om member er findes i listen og derefter tilføjer den hvis den ik findes
         }
         
-        public Member RemoveMember(int id)
+        public Member RemoveMember(int id) // Fjener en member fra repository via id
         {
-            Member members = GetMember(id);
-            if (memberList.Remove(members))
+            Member members = GetMember(id);// Finder en member via id
+            if (memberList.Remove(members)) // Hvis member findes så fjernes member fra listen
             {
-                return members;
+                return members; // Returnere den fjernede member
             }
-            return null!;
+            return null!;// Returnere null hvis den ikke findes 
         } 
         // Read listen af alle members
         public List<Member> GetAllMembers()
         {
-            return memberList;
+            return memberList;// Returnere memberlisten 
         }
 
         //Find den enkelte member med id ?
@@ -36,7 +36,7 @@ namespace Første_Eksamens_projekt
         {
             foreach (Member members in memberList) //brug en foreach som løber listen igennem for at finde member med id ?
             {
-                if (members.Id == id) return members;
+                if (members.Id == id) return members; // Tjekker om id'et findes og den returnere derefter hvis den findes
                 
             }
             return null!; // Returner null, hvis medlemmet ikke findes
@@ -52,9 +52,9 @@ namespace Første_Eksamens_projekt
                 NewMember.Email = UpdatedMember.Email;
                 NewMember.PhoneNumber = UpdatedMember.PhoneNumber;
                 NewMember.BirthDay = UpdatedMember.BirthDay;
-                return NewMember; 
+                return NewMember;  // Returnere den opdateret member 
             }
-            return null!; 
+            return null!; // Returnere null, hvis den member ikke findes 
         }
     } 
 }
