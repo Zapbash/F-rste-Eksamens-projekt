@@ -7,34 +7,32 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    public abstract class Boat
+    public class Boat
     {
         public int Id { get; set; }
 		public string BoatType {get;set;}
         public string Name {get;set;}
-        public string BoatModel {get;set;}
-
         public int SailNumber { get;set;}
-        public double Measurements {get;set;}
-
-        public int YearOfConstruction {get;set;}
+        public string Description {get;set;}
         
 
-           public Boat(int id, string boatType, string name, string boatModel,int sailNumber, double measurements,int yearOfConstruction)
+       
+        
+
+           public Boat(int id, string boatType, string name, int sailNumber, string description)
 		   { 
             Id = id;
             BoatType= boatType; 
             Name=name;
-            BoatModel = boatModel;
             SailNumber = sailNumber;
-            Measurements = measurements;
-            YearOfConstruction = yearOfConstruction;
+            Description = description;
+            
 
 		   } 
 
 		public override string ToString()
 		{
-			return $"{Id}{BoatType}{BoatModel}{Name}{SailNumber}{Measurements}{YearOfConstruction}";
+			return $"{Id}{BoatType}{Name}{SailNumber}{Description}";
 		}
 
 	}

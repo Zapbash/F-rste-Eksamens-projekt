@@ -54,10 +54,9 @@ namespace Første_Eksamens_projekt
 			if(NewBoat != null) // Hvis den findes 
 			{						// opdatere boats nye værdier som kan være de her 							
 					NewBoat.Name = updatedBoat.Name;
-					NewBoat.BoatModel = updatedBoat.BoatModel;
+					NewBoat.BoatType = updatedBoat.BoatType;
 					NewBoat.SailNumber = updatedBoat.SailNumber;
-					NewBoat.Measurements = updatedBoat.Measurements;
-					NewBoat.YearOfConstruction = updatedBoat.YearOfConstruction;
+					NewBoat.Description = updatedBoat.Description;
 					return NewBoat; // returnere derfter den boat som er blevet opdateret 
 				
 			}

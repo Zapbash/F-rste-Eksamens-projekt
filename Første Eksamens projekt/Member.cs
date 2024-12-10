@@ -19,7 +19,7 @@ namespace Første_Eksamens_projekt
         }
 
 
-        public override string? ToString()
+        public override string ToString()
         {
             return $"{Id} {Name} {PhoneNumber} {Email} {BirthDay}";
         }

@@ -7,4 +7,8 @@
     <RootNamespace>Første_eksamens_projekt_razorpage</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Første Eksamens projekt\HillerødClassLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
