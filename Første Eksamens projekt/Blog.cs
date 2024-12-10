@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Første_Eksamens_projekt
 {
-    public class EventRepo
+    public class Blog
     {
         public List<Event> eventList = new List<Event>();
 
