@@ -12,7 +12,13 @@ namespace Første_Eksamens_projekt
 {
 	public class BoatRepo 
 	{
-		private List<Boat> boatList = new List<Boat>();
+        public BoatRepo()
+        {
+            AddMockData();
+        }
+        private List<Boat> boatList = new List<Boat>();
+
+
 
 		
 		public void AddBoat(Boat boats) // tilføjer en boat i reposity hvis den ikke findes 
@@ -46,14 +52,7 @@ namespace Første_Eksamens_projekt
 		{
 			return boatList;  // Resturnere hele listen af boats
 		}				
-		public List<Boat> SearchBoat(string name)
-		{
-			List <Boat> boats = new List<Boat>();
-			foreach (Boat boats in boatList)
-			{
-				if(boat.name.Tol)
-			}
-		}
+		
 		
 		public Boat UpdateBoatRepo(Boat updatedBoat) // Opdatere en boat som der eksitere i repository via dens id 
 		{
@@ -69,7 +68,24 @@ namespace Første_Eksamens_projekt
 			}
 			return null!; // returnere null hvis boaten ikke findes 
 	}
-	}
+        private void AddMockData()
+        {
+            boatList.Add(new Boat(1, "Optimistjolle", "Optimist Beginner", 1001, "Begynderjolle til børn fra 10 år og op."));
+            boatList.Add(new Boat(2, "Tera", "Tera Mini", 1002, "Moderne begynderjolle for unge fra 8 år. Selvlænsende med 2.7 m2 sejl."));
+            boatList.Add(new Boat(3, "Tera", "Tera Sport", 1003, "Tera-jolle med 3.7 m2 sejl, hurtigere end Optimist-jollen."));
+            boatList.Add(new Boat(4, "Tera", "Tera Pro", 1004, "Avanceret Tera-jolle med 4.8 m2 sejl. God til træning."));
+            boatList.Add(new Boat(5, "Feva", "Feva S", 1005, "To-mands jolle. Længde: 3,64 m. Storsejl: 5.5 kvm."));
+            boatList.Add(new Boat(6, "Feva", "Feva XL", 1006, "Sportslig Feva-jolle med 6.5 kvm storsejl. God til unge."));
+            boatList.Add(new Boat(7, "Laserjolle", "Laser Standard", 1007, "Enkel jolle med standardrig til sejlere over 60 kg."));
+            boatList.Add(new Boat(8, "Laserjolle", "Laser Radial", 1008, "Mellemrig, ofte brugt af kvinder. Ideel vægt: 55-70 kg."));
+            boatList.Add(new Boat(9, "Laserjolle", "Laser 4.7", 1009, "Mindste rig til børn, vægtklasse ned til 35 kg."));
+            boatList.Add(new Boat(10, "Europajolle", "Europa", 1010, "Olympisk jolle for kvinder, udbredt i Europa. Klubben råder over 3."));
+            boatList.Add(new Boat(11, "Snipejolle", "Snipe", 1011, "Tomands kapsejladsjolle, kendt for taktik og sociale regattaer."));
+            boatList.Add(new Boat(12, "Wayfarer", "Wayfarer Senior", 1012, "Søstærk jolle for seniorer. Kan bruges til både kapsejlads og ture."));
+            boatList.Add(new Boat(13, "Lynæs", "Lynæs 14", 1013, "Stabil kølbåd til familier og seniorer. Klubben har 4 Lynæs 14."));
+        }
+
+    }
 }
 
 

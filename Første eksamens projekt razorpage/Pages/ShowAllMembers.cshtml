@@ -1,0 +1,46 @@
+﻿@page
+@model Første_eksamens_projekt_razorpage.Pages.ShowAllMembersModel;
+@{
+}
+
+<head>
+    <title>Vis medlemmer</title>
+  
+
+    <link rel="stylesheet" href="/css/ShowAllMembers.css" />
+
+
+</head>
+
+<table border="1" style="border-collapse: collapse; width: 80%; text-align: left;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>PhoneNumber</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model.members)
+        {
+            <tr>
+                <td>@member.Id</td>
+                <td>@member.Name</td>
+                <td>@member.PhoneNumber</td>
+                <td>@member.Email</td>
+                <td>@member.BirthDay.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" type="button" title="Edit" asp-page="EditMember" asp-route-id="@member.Id"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger btn-sm " type="button" title="Delete" asp-page="DeleteMember" asp-route-id="@member.Id"><i class="fa fa-trash"></i></a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Create ny medlem -->
+<button onclick="location.href='/CreateMember'">Create New Member</button>

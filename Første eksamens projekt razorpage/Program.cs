@@ -1,9 +1,13 @@
+using Første_Eksamens_projekt;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddSingleton<MemberRepo>();
+builder.Services.AddSingleton<BoatRepo>();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

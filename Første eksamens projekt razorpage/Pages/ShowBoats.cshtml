@@ -1,0 +1,34 @@
+﻿@page
+@model Første_eksamens_projekt_razorpage.Pages.ShowBoatsModel
+@{
+}
+<head>
+    <title>Show All Boats</title>
+    <link rel="stylesheet" href="/css/ShowBoats.css" />
+</head>
+<body>
+    <h1>All Boats</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Sail Number</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var boat in Model.Boats)
+            {
+                <tr>
+                    <td>@boat.Id</td>
+                    <td>@boat.BoatType</td>
+                    <td>@boat.Name</td>
+                    <td>@boat.SailNumber</td>
+                    <td>@boat.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

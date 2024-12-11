@@ -1,0 +1,18 @@
+﻿@page
+@model Første_eksamens_projekt_razorpage.Pages.DeleteMemberModel
+@{
+}
+<head>
+	<link rel="stylesheet" href="/css/DeleteMember.css" />
+
+</head>
+<body>
+<h1>Delete Confirmation></h1>
+<div class="alert alert-danger">
+	<h5>Are you sure you want to delete Item - @Model.member</h5>
+	<form method="post">
+		<button type="submit" class="btn btn-danger">Yes</button>
+		<a class="btn btn-primary" asp-page="/Item/GetAllItems">No</a>
+	</form>
+</div>
+</body>
