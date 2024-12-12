@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HillerødClassLibrary", "Første Eksamens projekt\HillerødClassLibrary.csproj", "{16C352AB-08DA-422F-9C28-7695FDE534ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HillerødClassLibrary", "Første Eksamens projekt\HillerødClassLibrary.csproj", "{16C352AB-08DA-422F-9C28-7695FDE534ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hillerødrazorpage", "Første eksamens projekt razorpage\Hillerødrazorpage.csproj", "{6012607C-E453-478D-824A-DA95588975C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hillerødrazorpage", "Første eksamens projekt razorpage\Hillerødrazorpage.csproj", "{6012607C-E453-478D-824A-DA95588975C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HillerødConsole", "Første eksamens projekt Console\HillerødConsole.csproj", "{797F3CB4-FC40-4BD1-AB70-6FC5281DFB81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HillerødConsole", "Første eksamens projekt Console\HillerødConsole.csproj", "{797F3CB4-FC40-4BD1-AB70-6FC5281DFB81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

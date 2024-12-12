@@ -1,0 +1,49 @@
+﻿@page
+@model Første_eksamens_projekt_razorpage.Pages.EditMemberModel
+@{
+}
+
+<head>
+	<link rel="stylesheet" href="/css/EditMember.css" />
+
+</head>
+<body>
+<h1>Opdater Medlem</h1>
+
+<form method="post">
+	<div class="form-group">
+		<label asp-for="member.Id" class="control-lable"></label>
+		<input asp-for="member.Id" class="form-control" readonly="@(true)" />
+	</div>
+	<div class="form-group">
+		<label asp-for="member.Name" class="control-lable"></label>
+		<input asp-for="member.Name" class="form-control" />
+		<span asp-validation-for="member.Name" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="member.PhoneNumber" class="control-lable"></label>
+		<input asp-for="member.PhoneNumber" class="form-control" />
+		<span asp-validation-for="member.PhoneNumber" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="member.Email" class="control-lable"></label>
+		<input asp-for="member.Email" class="form-control" />
+		<span asp-validation-for="member.Email" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="member.BirthDay" class="control-lable"></label>
+		<input asp-for="member.BirthDay" class="form-control" />
+		<span asp-validation-for="member.BirthDay" class="text-danger"></span>
+	</div>
+
+	<p>
+		<div class="form-group">
+			<input type="submit" value="Update" class="btn btn-primary" />
+		</div>
+	</p>
+</form>
+
+<p>
+	<a asp-page="/Item/GetAllItems">Back to List</a>
+</p>
+</body>

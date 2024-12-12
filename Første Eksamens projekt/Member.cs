@@ -8,9 +8,11 @@ namespace Første_Eksamens_projekt
 {
     public class Member : Person
     {
-      
 
-       
+        public Member() : base()
+        {
+        }
+
 
         public Member(int id, string name, int phoneNumber, string email, DateTime birthday) :base (id, name, phoneNumber, email, birthday)
         {
@@ -18,6 +20,7 @@ namespace Første_Eksamens_projekt
             
         }
 
+       
 
         public override string ToString()
         {
