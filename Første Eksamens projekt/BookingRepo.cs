@@ -36,6 +36,17 @@ namespace Første_Eksamens_projekt
         {
             return bookingList;// returnere hele booking listen 
         }
+
+        public List<Booking> Searchbooking(int memberId)
+        {
+            List<Booking> bookingsResult = new List<Booking>();
+            foreach (Booking bookings in bookingList)
+            {
+                if (bookings.Member.Id == memberId) bookingsResult.Add(bookings);
+            }
+            return bookingsResult;
+                
+        }
         public Booking UpdateBookingRepo(Booking UpdatedBooking) // Opdatere en eksiterende booking i repository
         {
             Booking NewBooking = GetBooking(UpdatedBooking.Id); // Finder den booking som skal opdateres

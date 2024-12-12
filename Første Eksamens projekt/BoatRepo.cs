@@ -46,14 +46,15 @@ namespace Første_Eksamens_projekt
 		{
 			return boatList;  // Resturnere hele listen af boats
 		}				
-		public List<Boat> SearchBoat(string name)
-		{
-			List <Boat> boats = new List<Boat>();
-			foreach (Boat boats in boatList)
+		public List<Boat> SearchBoat(string name) // en search metode som virker på en events title/ navn
+        {
+			List <Boat> boatResult = new List<Boat>(); //boat result laver ny liste
+			foreach (Boat boats in boatList) // så løber den alle event igenem i boatlist
 			{
-				if(boat.name.Tol)
-			}
-		}
+				if (boats.Name.ToLower().Contains(name.ToLower())) boatResult.Add(boats); // hvis boats i boat er det samme som det navn vi søger  så har den fundet den boat som der blev søgt efter, Tolover gør at stort eller småt skrift er ligemeget. de boats med den rigtige navn bliver lagt ned i ny boatresult liste
+            }
+			return boatResult; // her giver den tilbage listen med alle de boat navne som vi har søft efter
+        }
 		
 		public Boat UpdateBoatRepo(Boat updatedBoat) // Opdatere en boat som der eksitere i repository via dens id 
 		{

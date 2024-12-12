@@ -41,6 +41,15 @@ namespace Første_Eksamens_projekt
             }
             return null!; // Returner null, hvis medlemmet ikke findes
         }
+        public List<Member> SearchMember(string name)
+        {
+            List<Member> membersResult = new List<Member>();
+            foreach (Member members in memberList)
+            {
+                if (members.Name.ToLower().Contains(name.ToLower())) membersResult.Add(members);
+            }
+            return membersResult;
+        }
          
         // UpdateMember 
         public Member UpdateMemberRepo(Member UpdatedMember)
