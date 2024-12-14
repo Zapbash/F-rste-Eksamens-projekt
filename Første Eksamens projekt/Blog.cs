@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,6 +48,8 @@ namespace Første_Eksamens_projekt
              }
             return result; // her giver den tilbage listen med alle de ting som vi har event titler som vi har søft efter
         }
+
+        
         public Event UpdateEventRepo(Event UpdatedEvent)  // vi kalder vores updater event for update event
         {
             Event newEvent = Get(UpdatedEvent.Id);  //  vi laver først en objekt reference newevent som bliver initialiseret ved hjælp af get metoden, som peger på det specifike objekt  
@@ -63,12 +66,13 @@ namespace Første_Eksamens_projekt
             
             
         }
-        //public void Print()
-        //{
-        //    foreach (Event begivenhed in eventList) 
-        //    {
-        //        Console.WriteLine(begivenhed);         skal bruge denne her i console i stedet for repo
-        //    }
-        //}
+        public void Print()
+        {
+            foreach (Event begivenhed in eventList)
+            {
+                Console.WriteLine(begivenhed); 
+            }
+        }
+           
     }
 }

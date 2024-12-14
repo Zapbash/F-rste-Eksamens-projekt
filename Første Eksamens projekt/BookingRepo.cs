@@ -36,8 +36,9 @@ namespace Første_Eksamens_projekt
         {
             return bookingList;// returnere hele booking listen 
         }
+       
 
-        public List<Booking> Searchbooking(int memberId)
+        public List<Booking> Searchbooking(int memberId) // man kan søge ude fra members id
         {
             List<Booking> bookingsResult = new List<Booking>();
             foreach (Booking bookings in bookingList)
