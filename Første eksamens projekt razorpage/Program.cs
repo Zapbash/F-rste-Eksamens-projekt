@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<MemberRepo>();
 builder.Services.AddSingleton<BoatRepo>();
+builder.Services.AddSingleton<BookingRepo>();
 var app = builder.Build();
 
 

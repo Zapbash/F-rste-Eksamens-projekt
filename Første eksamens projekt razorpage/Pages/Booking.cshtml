@@ -1,0 +1,52 @@
+﻿@page
+@model Første_eksamens_projekt_razorpage.Pages.BookingModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<head>
+    <link rel="stylesheet" href="/css/Booking.css" />
+</head>
+<body>
+<h2>Create a Booking</h2>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-success">
+        @Model.Message
+    </div>
+}
+
+<form method="post">
+    <div>
+        <label for="MemberId">Member</label>
+        <select asp-for="MemberId" asp-items="@(new SelectList(Model.Members, "Id", "Name"))">
+            <option value="">Select a member</option>
+        </select>
+        <span asp-validation-for="MemberId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="BoatId">Boat</label>
+        <select asp-for="BoatId" asp-items="@(new SelectList(Model.Boats, "Id", "Name"))">
+            <option value="">Select a boat</option>
+        </select>
+        <span asp-validation-for="BoatId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="StartDate">Start Date</label>
+        <input asp-for="StartDate" type="date" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="EndDate">End Date</label>
+        <input asp-for="EndDate" type="date" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Submit Booking</button>
+</form>
+
+</body>

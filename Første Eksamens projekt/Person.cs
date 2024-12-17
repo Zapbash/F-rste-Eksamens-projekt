@@ -29,7 +29,7 @@ namespace Første_Eksamens_projekt
             BirthDay = birthDay;
         }
 
-        protected Person()
+        public Person()
         {
         }
 

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/ShowBoats.css" />
 </head>
 <body>
+
     <h1>All Boats</h1>
     <table>
         <thead>
@@ -16,6 +17,8 @@
                 <th>Name</th>
                 <th>Sail Number</th>
                 <th>Description</th>
+                <th>Book</th>
+
             </tr>
         </thead>
         <tbody>
@@ -27,6 +30,13 @@
                     <td>@boat.Name</td>
                     <td>@boat.SailNumber</td>
                     <td>@boat.Description</td>
+                    <td>
+                        <a href="/Booking?boatId=@boat.Id"
+                           class="book-button @(boat.IsBooked ? "booked" : "available")">
+                                @(boat.IsBooked ? "Booked" : "Book")
+                        </a>
+                    </td>
+                    
                 </tr>
             }
         </tbody>

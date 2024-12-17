@@ -1,0 +1,46 @@
+﻿@page
+@model Første_eksamens_projekt_razorpage.Pages.ShowAllBookingsModel
+@{
+}
+@{
+    ViewData["Title"] = "All Bookings";
+}
+<head>
+    <link rel="stylesheet" href="/css/ShowAllBooking.css" />
+</head>
+<body>
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.BookingList != null && Model.BookingList.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Member</th>
+                <th>Boat</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.BookingList)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.MemberId</td>
+                    <td>@booking.BoatId</td>
+                    <td>@booking.StartDate.ToString("yyyy-MM-dd")</td>
+                    <td>@booking.EndDate.ToString("yyyy-MM-dd")</td>
+                    <td>@booking.TotalPrice.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No bookings found.</p>
+}
+</body>

@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Første_Eksamens_projekt;
 
 namespace Første_Eksamens_projekt
 {
     public class BookingRepo
     {
+        
+        private int _currentBookingId = 1;
+        public BookingRepo()
+        {
+
+        }
+
         public List<Booking> bookingList = new List<Booking>();// lister der indeholder alle booking obejekter i repository
 
         public void AddBooking(Booking bookings)// Tilføjer en booking til repository, hvis den ikke findes 
         {
             if (!bookingList.Contains(bookings)) { bookingList.Add(bookings); } // Tjekker om booking allerede findes og hvis den ikke findes så tilføjer den en booking
+            bookings.Id = _currentBookingId++; //Gør bookingId incremented
         }
         public Booking RemoveBooking(int id)// Fjerner en booking  fra repository baseret på id 
         {
@@ -36,14 +46,34 @@ namespace Første_Eksamens_projekt
         {
             return bookingList;// returnere hele booking listen 
         }
-       
+
+        // Calculate total price
+        public double CalculateTotalPrice(Booking booking, Boat boat)
+        {
+            // Calculate the number of days
+            int days = (booking.EndDate - booking.StartDate).Days;
+
+            // Ensure the number of days is at least 1
+            if (days <= 0)
+            {
+                throw new ArgumentException("Booking period must be at least one day.");
+            }
+
+            // Calculate the total price
+            double totalPrice = days * boat.Price;
+
+            return totalPrice;
+        }
+    
+
+
 
         public List<Booking> Searchbooking(int memberId) // man kan søge ude fra members id
         {
             List<Booking> bookingsResult = new List<Booking>();
             foreach (Booking bookings in bookingList)
             {
-                if (bookings.Member.Id == memberId) bookingsResult.Add(bookings);
+                if (bookings.MemberId == memberId) bookingsResult.Add(bookings);
             }
             return bookingsResult;
                 
@@ -53,13 +83,18 @@ namespace Første_Eksamens_projekt
             Booking NewBooking = GetBooking(UpdatedBooking.Id); // Finder den booking som skal opdateres
             if (NewBooking != null)
             { // Opdatere den eksiterende booking med de her nye værdier
-                NewBooking.Member = UpdatedBooking.Member;
-                NewBooking.Period = UpdatedBooking.Period;
-                NewBooking.Boat = UpdatedBooking.Boat;
-                NewBooking.Price = UpdatedBooking.Price;
+                NewBooking.MemberId = UpdatedBooking.MemberId;
+             
+                NewBooking.BoatId = UpdatedBooking.BoatId;
+                NewBooking.StartDate = UpdatedBooking.StartDate;
+                NewBooking.EndDate = UpdatedBooking.EndDate;
+                NewBooking.TotalPrice = UpdatedBooking.TotalPrice;
                 return NewBooking; // Returnere den opdateret booking 
             }
             return null!; // Returnere null, hvis bookingen ikke findes 
         }
+
+        
     }
+    
 }

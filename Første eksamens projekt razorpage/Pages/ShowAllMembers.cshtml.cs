@@ -13,10 +13,11 @@ namespace Første_eksamens_projekt_razorpage.Pages
         {
             _MemberRepo = memberRepo;
         }
-
+        
         public List<Member>? members { get; private set; } = new List<Member>();
         public void OnGet()
         {
+            
             members = _MemberRepo.GetAllMembers();
 
 		}

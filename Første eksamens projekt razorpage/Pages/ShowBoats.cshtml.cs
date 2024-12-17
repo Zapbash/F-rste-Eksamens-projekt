@@ -6,7 +6,8 @@ namespace Første_eksamens_projekt_razorpage.Pages
 {
     public class ShowBoatsModel : PageModel
     {
-        private readonly BoatRepo _boatRepo;
+        
+        private  BoatRepo _boatRepo;
 
         public ShowBoatsModel(BoatRepo boatRepo)
         {
@@ -18,6 +19,9 @@ namespace Første_eksamens_projekt_razorpage.Pages
         public void OnGet()
         {
             Boats = _boatRepo.GetAllBoat();
+            
+
+
         }
     }
 }

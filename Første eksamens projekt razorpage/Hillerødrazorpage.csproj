@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\Booking.css" />
     <None Include="wwwroot\css\DeleteMember.css" />
     <None Include="wwwroot\css\EditMember.css" />
+    <None Include="wwwroot\css\ShowAllBooking.css" />
     <None Include="wwwroot\css\ShowAllMembers.css" />
     <None Include="wwwroot\css\ShowBoats.css" />
   </ItemGroup>
