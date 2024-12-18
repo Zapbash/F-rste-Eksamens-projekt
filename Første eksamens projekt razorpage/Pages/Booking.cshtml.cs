@@ -71,8 +71,8 @@ namespace Første_eksamens_projekt_razorpage.Pages
                 // Create a new booking instance
                 var booking = new Booking
                 {
-                    MemberId = memberId,  // Store the MemberId
-                    BoatId = boatId,      // Store the BoatId
+                    Member = member,  // Store the MemberId
+                    Boat = boat,      // Store the BoatId
                     StartDate = startDate,
                     EndDate = endDate
                 };
@@ -80,7 +80,7 @@ namespace Første_eksamens_projekt_razorpage.Pages
                 try
                 {
                     // Calculate the total price using the repository method
-                    TotalPrice = _bookingRepo.CalculateTotalPrice(booking, boat);
+                    TotalPrice = _bookingRepo.CalculateTotalPrice(booking);
 
                     // Save the booking with the calculated price
                     booking.TotalPrice = TotalPrice;

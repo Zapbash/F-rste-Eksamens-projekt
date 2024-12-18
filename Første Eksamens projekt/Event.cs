@@ -23,7 +23,7 @@
 
         public void AddEventMember(Member member) // join event funktion 
         {
-            EventMembers.Add(member);
+            EventMembers.Add(member); // når man skriver eks. Event2.AddEventMember(member3) så laver den en ny liste af members under den event
         }
         public bool RemoveEventMember(int Id) // leave event funktion
         {

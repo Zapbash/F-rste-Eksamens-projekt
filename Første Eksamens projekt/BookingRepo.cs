@@ -48,7 +48,7 @@ namespace Første_Eksamens_projekt
         }
 
         // Calculate total price
-        public double CalculateTotalPrice(Booking booking, Boat boat)
+        public double CalculateTotalPrice(Booking booking)
         {
             // Calculate the number of days
             int days = (booking.EndDate - booking.StartDate).Days;
@@ -60,7 +60,7 @@ namespace Første_Eksamens_projekt
             }
 
             // Calculate the total price
-            double totalPrice = days * boat.Price;
+            double totalPrice = days * booking.Boat.Price;
 
             return totalPrice;
         }
@@ -68,24 +68,24 @@ namespace Første_Eksamens_projekt
 
 
 
-        public List<Booking> Searchbooking(int memberId) // man kan søge ude fra members id
+        public List<Booking> Searchbooking(int memberId) // search booking har en parameter som er vores medlems id(har en retur type som er list af booking), har med hensigt at finde/returnerer alle de bookinger som indeholder som matcher det id som vi gir som argument
         {
-            List<Booking> bookingsResult = new List<Booking>();
-            foreach (Booking bookings in bookingList)
+            List<Booking> bookingsResult = new List<Booking>(); // bookingresult laver en ny liste af booking
+            foreach (Booking bookings in bookingList) // for hver booking i bookings liste
             {
-                if (bookings.MemberId == memberId) bookingsResult.Add(bookings);
+                if (bookings.Member.Id == memberId) bookingsResult.Add(bookings); //  hvis den aktuelle bookings medlems id, matcher det id som vi giver som argument, add den booking til bookingresult
             }
             return bookingsResult;
                 
         }
         public Booking UpdateBookingRepo(Booking UpdatedBooking) // Opdatere en eksiterende booking i repository
         {
-            Booking NewBooking = GetBooking(UpdatedBooking.Id); // Finder den booking som skal opdateres
+            Booking NewBooking = GetBooking(UpdatedBooking.Id); // Finder den booking som skal opdateres ud fra 
             if (NewBooking != null)
             { // Opdatere den eksiterende booking med de her nye værdier
-                NewBooking.MemberId = UpdatedBooking.MemberId;
+                NewBooking.Member.Id = UpdatedBooking.Member.Id;
              
-                NewBooking.BoatId = UpdatedBooking.BoatId;
+                NewBooking.Boat.Id = UpdatedBooking.Boat.Id;
                 NewBooking.StartDate = UpdatedBooking.StartDate;
                 NewBooking.EndDate = UpdatedBooking.EndDate;
                 NewBooking.TotalPrice = UpdatedBooking.TotalPrice;

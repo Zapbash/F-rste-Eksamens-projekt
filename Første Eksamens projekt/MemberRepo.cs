@@ -45,14 +45,14 @@ namespace Første_Eksamens_projekt
             }
             return null!; // Returner null, hvis medlemmet ikke findes
         }
-        public List<Member> SearchMember(string name)
+        public List<Member> SearchMember(string name) // search member har en parameter som er string name( har en retur tpe som er list member), har med hensigt at retunere alle de Member hvis navn matcher det navn som vi giver i argument
         {
-            List<Member> membersResult = new List<Member>();
-            foreach (Member members in memberList)
+            List<Member> membersResult = new List<Member>(); // memberresult laver en ny liste af member
+            foreach (Member members in memberList) // for hver memer member in memberlist (den går igennem listen)
             {
-                if (members.Name.ToLower().Contains(name.ToLower())) membersResult.Add(members);
+                if (members.Name.ToLower().Contains(name.ToLower())) membersResult.Add(members); // hvis members navn indeholder det samme som det argument vi gav(tolower betyder stort og småt er ligemeget), så adder den den member til memberresult.
             }
-            return membersResult;
+            return membersResult; //retunere derefter listen af navne som passer med det argument vi gav
         }
          
         // UpdateMember 

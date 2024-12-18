@@ -11,19 +11,19 @@ namespace Første_Eksamens_projekt
         
 
         public int Id {  get; set; }
-        public int MemberId { get; set; }  
-        public int BoatId { get; set; }
+        public Member Member { get; set; }  
+        public Boat Boat { get; set; }
         
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public double TotalPrice { get; set; }
 
 
-        public Booking(int id, Member memberId, Boat boatId, DateTime startDate, DateTime endDate, double totalPrice)
+        public Booking(int id, Member member, Boat boat, DateTime startDate, DateTime endDate, double totalPrice)
         {
             Id = id;
-            MemberId = memberId.Id;
-            BoatId = boatId.Id;
+            Member = member;
+            Boat= boat;
             StartDate = startDate;
             EndDate = endDate;
             TotalPrice = totalPrice;
@@ -35,7 +35,7 @@ namespace Første_Eksamens_projekt
         }
         public override string ToString()
         {
-            return $"{Id} {MemberId} {BoatId} {StartDate} {EndDate} {TotalPrice}";
+            return $"{Id} {Member} {Boat} {StartDate} {EndDate} {TotalPrice}";
         }
     }
 }

@@ -9,40 +9,37 @@ namespace Første_Eksamens_projekt
 {
     public class Blog
     {
-        public List<Event> eventList = new List<Event>();
+        public Dictionary<int,Event> eventDict = new();
 
-        public void Add(Event begivenhed) // ved hjælp af metode så adder den en event til vores event repo
+        public bool Add(Event begivenhed) // ved hjælp af metode så adder den en event til vores event repo
         {
-            if (!eventList.Contains(begivenhed)) eventList.Add(begivenhed);  //hvis eventliste ikke indeholder begivenhed så adder den en begivenhed 
-        }
-
-        public Event Remove(int id)  // vores remove fjerne en begivenhed ud fra dens id
-        {   
-            Event begivenhed = Get(id); // kalder på vores get metode til at lede efter den specifike id
-            if (eventList.Remove(begivenhed))  // hvis den fjerner begivenheden, så returner den begivenheden. else return null
+            if (!eventDict.ContainsKey(begivenhed.Id)) 
             {
-                return begivenhed;
-            }
-            return null!;
+                
+               eventDict.Add(begivenhed.Id,begivenhed); //hvis eventliste ikke indeholder begivenhed så adder den en begivenhed 
+                return true;  
+            }            
+               return false;
+            
             
         }
-        public Event Get(int Id)  // vores metode til at søge efter specifik begivenhed
+        public bool Remove(int id)  // vores remove fjerne en begivenhed ud fra dens id
+        {   
+            return eventDict.Remove(id);      
+        }
+        public Event Get(int Id)  
         {
-            foreach (Event begivenhed in eventList) // for hver begivenhed i vores eventliste 
-            {
-                if (begivenhed.Id == Id) return begivenhed;    // hvis begivenhedens id er det samme som det id vi søger efter så returner den
-            }
-            return null!; // ellers return null
+           return (eventDict.ContainsKey(Id)) ? eventDict[Id] : null!; // hvis eventdict indeholder key så return ellers return null 
         } 
-        public List<Event> GetAll()  // viser bare helle vores liste 
+        public List<Event> GetAll()  
         {
-            return eventList;
+            return eventDict.Values.ToList(); // returner hele evendict ved at konvetere vores values til en list
         }
         public List <Event> SearchEvent(string title)  // en search metode som virker på en events title/ navn
         {
             List<Event> result = new List<Event>();   //result laver en ny liste 
                     
-             foreach (Event begivenhed in eventList)   // så løber den igennem hele event listen af begivenhed
+             foreach (Event begivenhed in eventDict.Values)   // så løber den igennem hele event listen af begivenhed
              {
                 if (begivenhed.Title.ToLower().Contains(title.ToLower())) result.Add(begivenhed); // hvis begivenhed i event er det samme som den title vi søger  så har den fundet den event som det blev søgt efter, Tolover gør at stort eller småt skrift er ligemeget. de event med den rigtige title bliver lagt ned i ny result liste
              }
@@ -50,8 +47,8 @@ namespace Første_Eksamens_projekt
         }
 
         
-        public Event UpdateEventRepo(Event UpdatedEvent)  // vi kalder vores updater event for update event
-        {
+        public Event UpdateEventRepo(int id, Event UpdatedEvent)  // vi kalder vores updater event for update event
+        {                                            // check console og om updateeventrepo skal laves som i uml oopgave.
             Event newEvent = Get(UpdatedEvent.Id);  //  vi laver først en objekt reference newevent som bliver initialiseret ved hjælp af get metoden, som peger på det specifike objekt  
             if(newEvent != null) // hvis vores nye event ikke er null så updatere den ( den kan godt finde vores objekt) 
             {
@@ -68,7 +65,7 @@ namespace Første_Eksamens_projekt
         }
         public void Print()
         {
-            foreach (Event begivenhed in eventList)
+            foreach (Event begivenhed in eventDict.Values)
             {
                 Console.WriteLine(begivenhed); 
             }

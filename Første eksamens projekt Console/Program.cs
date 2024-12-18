@@ -78,8 +78,8 @@ namespace BookingApp
             // Create a new booking
             var booking = new Booking
             {
-                MemberId = selectedMember.Id,
-                BoatId = selectedBoat.Id,
+                Member = selectedMember,
+                Boat = selectedBoat,
                 StartDate = startDate,
                 EndDate = endDate
             };
@@ -87,7 +87,7 @@ namespace BookingApp
             try
             {
                 // Calculate the total price for the booking
-                double totalPrice = bookingRepo.CalculateTotalPrice(booking, selectedBoat);
+                double totalPrice = bookingRepo.CalculateTotalPrice(booking);
                 booking.TotalPrice = totalPrice;
 
                 // Add the booking to the repo
@@ -106,6 +106,41 @@ namespace BookingApp
             // Wait for user input to close the program
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
+
+
+            Event event2 = new Event(2, "køge", "20/12/2024", "8:20", "jul", "Peppernøder og gløg");
+            Event event3 = new Event(3, "Roskilde", "21/12/2024", "9:30", "julefrokost", "Gaver og gløg");
+            Event event4 = new Event(4, "København", "22/12/2024", "10:30", "juletræ", "dans om juletræ");
+
+            Blog blog = new Blog();
+            blog.Add(event2);
+            blog.Add(event3);
+            blog.Add(event4);
+            blog.Remove(2);
+            blog.UpdateEventRepo(3, new Event(3, "odense", "01/13/2025", "12:30", "julefrokost", "Gaver og gløg"));
+            blog.Print();
+            Console.WriteLine(event3);
+
+            Boat boat1 = new Boat(1, "Optimistjolle", "Optimist Beginner", 1001, "Begynderjolle til børn fra 10 år og op.", false, 500);
+            Boat boat2 = new Boat(2, "Tera", "Tera Mini", 1002, "Moderne begynderjolle for unge fra 8 år. Selvlænsende med 2.7 m2 sejl.", false, 600);
+            Boat boat3 = new Boat(3, "Tera", "Tera Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 650);
+            BoatRepo boatRep = new BoatRepo();
+            boatRep.AddBoat(boat1);
+            boatRep.AddBoat(boat2);
+            boatRep.AddBoat(boat3);
+            boatRep.RemoveBoat(1);
+            boatRep.UpdateBoatRepo(3, new Boat(3,"Tera Sport","Terra Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 600));
+            boatRep.Print();
+
+
         }
+
+
+
+       
+
+
+        
+
     }
 }
