@@ -54,7 +54,8 @@ namespace Første_Eksamens_projekt
             }
             return membersResult; //retunere derefter listen af navne som passer med det argument vi gav
         }
-         
+        
+
         // UpdateMember 
         public Member UpdateMemberRepo(Member UpdatedMember)
         {

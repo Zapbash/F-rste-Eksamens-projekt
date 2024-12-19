@@ -47,7 +47,7 @@ namespace Første_Eksamens_projekt
         }
 
         
-        public Event UpdateEventRepo(int id, Event UpdatedEvent)  // vi kalder vores updater event for update event
+        public Event UpdateEventRepo(Event UpdatedEvent)  // vi kalder vores updater event for update event
         {                                            // check console og om updateeventrepo skal laves som i uml oopgave.
             Event newEvent = Get(UpdatedEvent.Id);  //  vi laver først en objekt reference newevent som bliver initialiseret ved hjælp af get metoden, som peger på det specifike objekt  
             if(newEvent != null) // hvis vores nye event ikke er null så updatere den ( den kan godt finde vores objekt) 
@@ -63,13 +63,7 @@ namespace Første_Eksamens_projekt
             
             
         }
-        public void Print()
-        {
-            foreach (Event begivenhed in eventDict.Values)
-            {
-                Console.WriteLine(begivenhed); 
-            }
-        }
+        
            
     }
 }

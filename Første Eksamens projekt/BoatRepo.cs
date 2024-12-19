@@ -59,15 +59,9 @@ namespace Første_Eksamens_projekt
             }
 			return boatResult; // her giver den tilbage listen med alle de boat navne som vi har søft efter
         }
-        public void Print()
-        {
-            foreach (Boat boats in boatList)
-            {
-                Console.WriteLine(boats);
-            }
-        }
+       
 
-        public Boat UpdateBoatRepo(int id,Boat updatedBoat) // Opdatere en boat som der eksitere i repository via dens id 
+        public Boat UpdateBoatRepo(Boat updatedBoat) // Opdatere en boat som der eksitere i repository via dens id 
 		{
 			Boat NewBoat = GetBoat(updatedBoat.Id);// Finder den specifikke boat som skal opdateres 
 			if(NewBoat != null) // Hvis newboat ikke er null(den findes) 

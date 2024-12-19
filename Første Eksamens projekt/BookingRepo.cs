@@ -83,7 +83,7 @@ namespace Første_Eksamens_projekt
             Booking NewBooking = GetBooking(UpdatedBooking.Id); // Finder den booking som skal opdateres ud fra 
             if (NewBooking != null)
             { // Opdatere den eksiterende booking med de her nye værdier
-                NewBooking.Member.Id = UpdatedBooking.Member.Id;
+                NewBooking.Member.Id = UpdatedBooking.Member.Id; // 
              
                 NewBooking.Boat.Id = UpdatedBooking.Boat.Id;
                 NewBooking.StartDate = UpdatedBooking.StartDate;
@@ -95,6 +95,7 @@ namespace Første_Eksamens_projekt
         }
 
         
+
     }
     
 }
