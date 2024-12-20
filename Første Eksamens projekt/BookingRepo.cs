@@ -23,6 +23,7 @@ namespace Første_Eksamens_projekt
         {
             if (!bookingList.Contains(bookings)) { bookingList.Add(bookings); } // Tjekker om booking allerede findes og hvis den ikke findes så tilføjer den en booking
             bookings.Id = _currentBookingId++; //Gør bookingId incremented
+           
         }
         public Booking RemoveBooking(int id)// Fjerner en booking  fra repository baseret på id 
         {
@@ -47,24 +48,7 @@ namespace Første_Eksamens_projekt
             return bookingList;// returnere hele booking listen 
         }
 
-        // Calculate total price
-        public double CalculateTotalPrice(Booking booking)
-        {
-            // Calculate the number of days
-            int days = (booking.EndDate - booking.StartDate).Days;
-
-            // Ensure the number of days is at least 1
-            if (days <= 0)
-            {
-                throw new ArgumentException("Booking period must be at least one day.");
-            }
-
-            // Calculate the total price
-            double totalPrice = days * booking.Boat.Price;
-
-            return totalPrice;
-        }
-    
+        
 
 
 

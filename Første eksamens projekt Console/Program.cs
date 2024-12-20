@@ -7,10 +7,8 @@ namespace BookingApp
     {
         static void Main(string[] args)
         {
-            // Initialize repositories
+            //Repo
             MemberRepo memberRepo = new MemberRepo();
-            BoatRepo boatRepo = new BoatRepo();
-            BookingRepo bookingRepo = new BookingRepo();
 
             // Add a new member to the MemberRepo
             memberRepo.AddMember(new Member(4, "Test User", 123456, "test@example.com", DateTime.Now));
@@ -30,65 +28,6 @@ namespace BookingApp
             Console.WriteLine($"Updated member name: {result?.Name}"); // Expected output: "Benny Updated"
 
 
-
-
-            /*
-             Boat and booking process
-            Console.WriteLine("Select a member (1 or 2):");
-            int memberId = int.Parse(Console.ReadLine());
-            Member selectedMember = memberRepo.GetMember(memberId);
-
-            Console.WriteLine("Select a boat (1 or 2):");
-            int boatId = int.Parse(Console.ReadLine());
-            Boat selectedBoat = boatRepo.GetBoat(boatId);
-
-            // Input booking dates
-            Console.WriteLine("Enter the start date (yyyy-mm-dd):");
-            DateTime startDate;
-            while (!DateTime.TryParse(Console.ReadLine(), out startDate))
-            {
-                Console.WriteLine("Invalid date format. Please enter the start date in the correct format (yyyy-mm-dd).");
-            }
-
-            Console.WriteLine("Enter the end date (yyyy-mm-dd):");
-            DateTime endDate;
-            while (!DateTime.TryParse(Console.ReadLine(), out endDate))
-            {
-                Console.WriteLine("Invalid date format. Please enter the end date in the correct format (yyyy-mm-dd).");
-            }
-
-            // Create a new booking
-            var booking = new Booking
-            {
-                Member = selectedMember,
-                Boat = selectedBoat,
-                StartDate = startDate,
-                EndDate = endDate
-            };
-
-            try
-            {
-                // Calculate the total price for the booking
-                double totalPrice = bookingRepo.CalculateTotalPrice(booking);
-                booking.TotalPrice = totalPrice;
-
-                // Add the booking to the repo
-                bookingRepo.AddBooking(booking);
-
-                // Display the booking details
-                Console.WriteLine($"Booking confirmed for {selectedMember.Name} to rent {selectedBoat.Name} from {startDate.ToShortDateString()} to {endDate.ToShortDateString()}.");
-                Console.WriteLine($"Total Price: {totalPrice:C}");
-            }
-            catch (ArgumentException ex)
-            {
-                // Handle any error in price calculation
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-
-            // Wait for user input to close the program
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
-              */
             // test af EventRepo
             Event event2 = new Event(2, "køge", "20/12/2024", "8:20", "jul", "Peppernøder og gløg");
             Event event3 = new Event(3, "Roskilde", "21/12/2024", "9:30", "julefrokost", "Gaver og gløg");
@@ -126,15 +65,28 @@ namespace BookingApp
 
 
             //test af BoatRepo
-            Boat boat1 = new Boat(1, "Optimistjolle", "Optimist Beginner", 1001, "Begynderjolle til børn fra 10 år og op.", false, 500);
-            Boat boat2 = new Boat(2, "Tera", "Tera Mini", 1002, "Moderne begynderjolle for unge fra 8 år. Selvlænsende med 2.7 m2 sejl.", false, 600);
-            Boat boat3 = new Boat(3, "Tera", "Tera Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 650);
+            Boat boat14 = new Boat(14, "ooo", "Optimist Beginner", 1001, "Begynderjolle til børn fra 10 år og op.", false, 500);
+            Boat boat15 = new Boat(15, "ppp", "Tera Mini", 1002, "Moderne begynderjolle for unge fra 8 år. Selvlænsende med 2.7 m2 sejl.", false, 600);
+            Boat boat16 = new Boat(16, "qqq", "Tera Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 650);
             BoatRepo boatRep = new  BoatRepo();
-            boatRep.AddBoat(boat1);
-            boatRep.AddBoat(boat2);
-            boatRep.AddBoat(boat3);
-            boatRep.RemoveBoat(1);
-            boatRep.UpdateBoat(new Boat(3, "Tera Sport", "Terra Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 600));
+            boatRep.AddBoat(boat14);
+            boatRep.AddBoat(boat15);
+            boatRep.AddBoat(boat16);
+            boatRep.RemoveBoat(14);
+            boatRep.UpdateBoat(new Boat(16, "Tera Sport", "Terra Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 600));
+
+
+            // Test af bookingRepo
+            BookingRepo bookingRepo1= new BookingRepo();
+            DateTime expectedStartDate = DateTime.Now;
+            DateTime expectedEndDate = new DateTime(2024, 12, 30);
+           
+            
+            Booking booking1 = new Booking(1, member1, boat16,expectedStartDate,expectedEndDate);
+            Console.WriteLine("booking ");
+            Console.WriteLine(booking1.ToString());
+            Console.WriteLine(booking1.TotalPrice);
+
 
             foreach (Event events in blog.eventDict.Values)
             {
@@ -142,10 +94,12 @@ namespace BookingApp
                 Console.WriteLine("\n");
             }
 
-            foreach (Boat boats in boatRepo.GetAllBoat())
+            foreach (Boat boats in boatRep.GetAllBoat())
             {
                 Console.WriteLine(boats.ToString());
             }
+
+            
         }
 
 
