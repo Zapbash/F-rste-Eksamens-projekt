@@ -26,7 +26,7 @@ namespace Første_Eksamens_projekt
         }
         public Booking RemoveBooking(int id)// Fjerner en booking  fra repository baseret på id 
         {
-            Booking bookings = GetBooking(id);// Finder booking via id 
+            Booking bookings = GetBooking(id);// Finder booking get funktionen
             if (bookingList.Remove(bookings))// Hvis booking findes så fjernes den fra listen 
             {
                 return bookings;// Returnere den fjernede booking 
@@ -39,7 +39,7 @@ namespace Første_Eksamens_projekt
             {
                 if (bookings.Id == id) return bookings;// Sammenligner alle booking id med den indtastet id  og returnere dermed booking hvis den findes 
             }
-            return null!;// returnere null hvis  booking ke findes
+            return null!;// returnere null hvis booking ikke findes
 
         }
         public List<Booking> GetAllBookings() // Returnere hele booking listen i repository 
@@ -78,14 +78,14 @@ namespace Første_Eksamens_projekt
             return bookingsResult;
                 
         }
-        public Booking UpdateBookingRepo(Booking UpdatedBooking) // Opdatere en eksiterende booking i repository
+        public Booking UpdateBookingRepo(Booking UpdatedBooking) // indeholder de opdaterede values til en eksisterene Booking
         {
-            Booking NewBooking = GetBooking(UpdatedBooking.Id); // Finder den booking som skal opdateres ud fra 
+            Booking NewBooking = GetBooking(UpdatedBooking.Id); // bruger get metoden til at finde den booking med samme id
             if (NewBooking != null)
-            { // Opdatere den eksiterende booking med de her nye værdier
+            { 
                 NewBooking.Member.Id = UpdatedBooking.Member.Id; // 
              
-                NewBooking.Boat.Id = UpdatedBooking.Boat.Id;
+                NewBooking.Boat.Id = UpdatedBooking.Boat.Id; // properties overskrives med de nye values fra updatedbooking
                 NewBooking.StartDate = UpdatedBooking.StartDate;
                 NewBooking.EndDate = UpdatedBooking.EndDate;
                 NewBooking.TotalPrice = UpdatedBooking.TotalPrice;

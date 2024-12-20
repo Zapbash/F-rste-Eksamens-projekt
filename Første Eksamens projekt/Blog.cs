@@ -11,12 +11,12 @@ namespace Første_Eksamens_projekt
     {
         public Dictionary<int,Event> eventDict = new();
 
-        public bool Add(Event begivenhed) // ved hjælp af metode så adder den en event til vores event repo
+        public bool Add(Event begivenhed) 
         {
-            if (!eventDict.ContainsKey(begivenhed.Id)) 
+            if (!eventDict.ContainsKey(begivenhed.Id))   // hvis evendict ikke indeholder den begivenhed som søges efter med id
             {
                 
-               eventDict.Add(begivenhed.Id,begivenhed); //hvis eventliste ikke indeholder begivenhed så adder den en begivenhed 
+               eventDict.Add(begivenhed.Id,begivenhed); // så adder den begivenheden (begivenhed.id værende key og begivenhed valure)
                 return true;  
             }            
                return false;
@@ -35,7 +35,7 @@ namespace Første_Eksamens_projekt
         {
             return eventDict.Values.ToList(); // returner hele evendict ved at konvetere vores values til en list
         }
-        public List <Event> SearchEvent(string title)  // en search metode som virker på en events title/ navn
+        public List <Event> SearchEvent(string title)  // en search metode som virker på en title
         {
             List<Event> result = new List<Event>();   //result laver en ny liste 
                     
@@ -47,12 +47,12 @@ namespace Første_Eksamens_projekt
         }
 
         
-        public Event UpdateEventRepo(Event UpdatedEvent)  // vi kalder vores updater event for update event
-        {                                            // check console og om updateeventrepo skal laves som i uml oopgave.
-            Event newEvent = Get(UpdatedEvent.Id);  //  vi laver først en objekt reference newevent som bliver initialiseret ved hjælp af get metoden, som peger på det specifike objekt  
+        public Event UpdateEvent(Event UpdatedEvent)  // indeholder de opdaterede værdier til en Event
+        {                                            
+            Event newEvent = Get(UpdatedEvent.Id);  //  bruger get funktion til af finde den event med samme id som updatedven.id
             if(newEvent != null) // hvis vores nye event ikke er null så updatere den ( den kan godt finde vores objekt) 
             {
-                newEvent.Location = UpdatedEvent.Location;        
+                newEvent.Location = UpdatedEvent.Location;        // properties overskrives med den nye valure fra updatedevent.
                 newEvent.Date = UpdatedEvent.Date;
                 newEvent.Time = UpdatedEvent.Time;
                 newEvent.Title = UpdatedEvent.Title;

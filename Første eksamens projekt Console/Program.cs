@@ -98,7 +98,9 @@ namespace BookingApp
             blog.Add(event3);
             blog.Add(event4);
             blog.Remove(2);
-            blog.UpdateEventRepo(new Event(3, "odense", "01/13/2025", "12:30", "julefrokost", "Gaver og gløg"));
+            blog.UpdateEvent(new Event(3, "odense", "01/13/2025", "12:30", "julefrokost", "Gaver og gløg"));
+            
+            
 
             // Create some members and an event for testing event functionality
             Member member1 = new Member(1, "Lars", 12345678, "Lars@gmail.com", new DateTime(1980, 8, 28));
@@ -127,17 +129,22 @@ namespace BookingApp
             Boat boat1 = new Boat(1, "Optimistjolle", "Optimist Beginner", 1001, "Begynderjolle til børn fra 10 år og op.", false, 500);
             Boat boat2 = new Boat(2, "Tera", "Tera Mini", 1002, "Moderne begynderjolle for unge fra 8 år. Selvlænsende med 2.7 m2 sejl.", false, 600);
             Boat boat3 = new Boat(3, "Tera", "Tera Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 650);
-            BoatRepo boatRep = new BoatRepo();
+            BoatRepo boatRep = new  BoatRepo();
             boatRep.AddBoat(boat1);
             boatRep.AddBoat(boat2);
             boatRep.AddBoat(boat3);
             boatRep.RemoveBoat(1);
-            boatRep.UpdateBoatRepo(new Boat(3, "Tera Sport", "Terra Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 600));
+            boatRep.UpdateBoat(new Boat(3, "Tera Sport", "Terra Sport", 1003, "Tera-jolle med 3.7 m2 sejl. Hurtigere end Optimist-jollen.", false, 600));
 
             foreach (Event events in blog.eventDict.Values)
             {
                 Console.WriteLine(events.ToString());
                 Console.WriteLine("\n");
+            }
+
+            foreach (Boat boats in boatRepo.GetAllBoat())
+            {
+                Console.WriteLine(boats.ToString());
             }
         }
 

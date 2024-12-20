@@ -20,9 +20,9 @@ namespace Første_Eksamens_projekt
             if (!memberList.Contains(members)) memberList.Add(members); // Tjekker om member er findes i listen og derefter tilføjer den hvis den ik findes
         }
         
-        public Member RemoveMember(int id) // Fjener en member fra repository via id
+        public Member RemoveMember(int id) // Fjener en member  ud fra id
         {
-            Member members = GetMember(id);// Finder en member via id
+            Member members = GetMember(id);// Finder en member via Get funktionen
             if (memberList.Remove(members)) // Hvis member findes så fjernes member fra listen
             {
                 return members; // Returnere den fjernede member
@@ -40,7 +40,7 @@ namespace Første_Eksamens_projekt
         {
             foreach (Member members in memberList) //brug en foreach som løber listen igennem for at finde member med id ?
             {
-                if (members.Id == id) return members; // Tjekker om id'et findes og den returnere derefter hvis den findes
+                if (members.Id == id) return members; // Tjekker om id'et mather det som vi søger efter og derefter returnere  hvis den findes
                 
             }
             return null!; // Returner null, hvis medlemmet ikke findes
@@ -57,12 +57,12 @@ namespace Første_Eksamens_projekt
         
 
         // UpdateMember 
-        public Member UpdateMemberRepo(Member UpdatedMember)
+        public Member UpdateMemberRepo(Member UpdatedMember) // indeholder de opdatederede values til en eksisterende Member
         {
-            Member NewMember = GetMember(UpdatedMember.Id); // brug getmember metoden til at finde memberen
-            if (NewMember != null) // hvis member findes opdater vi dette instansfelter
+            Member NewMember = GetMember(UpdatedMember.Id); // brug getmember metoden til at finde memberen som skal opdateres
+            if (NewMember != null) // hvis newmember ikke er null(den findes)
             {
-                NewMember.Name = UpdatedMember.Name; 
+                NewMember.Name = UpdatedMember.Name; // properties overskrives med nye values fra updatemember
                 NewMember.Email = UpdatedMember.Email;
                 NewMember.PhoneNumber = UpdatedMember.PhoneNumber;
                 NewMember.BirthDay = UpdatedMember.BirthDay;

@@ -21,16 +21,16 @@ namespace Første_Eksamens_projekt
 		
 		public void AddBoat(Boat boats) // tilføjer en boat i reposity hvis den ikke findes 
 		{
-			if (!boatList.Contains(boats)) // tjekker om boat findes i listen
+			if (!boatList.Contains(boats)) // hvis boat ikke eksisterer
 			{
-				boatList.Add(boats); // tilføjer om boat, hvis den ikke findes 
+				boatList.Add(boats); // tilføjer om boat,  
 			}
 		}
 
 	
 		public Boat RemoveBoat(int id) // fjerner boat fra reposity ud fra id 
 		{
-			Boat boats = GetBoat(id); 
+			Boat boats = GetBoat(id); // bruger getmetode til at finde boat
 			if (boatList.Remove(boats))  // søger efter på boat og fjerner den hvis den findes  
 			{
 				return boats; // returnere boat som er blevet fjernet 
@@ -41,7 +41,7 @@ namespace Første_Eksamens_projekt
 		{
 			foreach (Boat boats in boatList) //  Søger alle boats igennem i listen 
 			{
-				if (boats.Id == id) return boats; // Sammenligner boat id med det ønskede id
+				if (boats.Id == id) return boats; // Sammenligner boat id med det ønskede id og returner hvis den kan finde det
 			}
 			return null!;// returnere null hvis boat ik findes 
 		}
@@ -50,23 +50,23 @@ namespace Første_Eksamens_projekt
 		{
 			return boatList;  // Resturnere hele listen af boats
 		}				
-		public List<Boat> SearchBoat(string name) // en search metode som virker på en events title/ navn
+		public List<Boat> SearchBoat(string name) // en search metode som virker på en navn
         {
 			List <Boat> boatResult = new List<Boat>(); //boat result laver ny liste
 			foreach (Boat boats in boatList) // så løber den alle event igenem i boatlist
 			{
-				if (boats.Name.ToLower().Contains(name.ToLower())) boatResult.Add(boats); // hvis boats i boat er det samme som det navn vi søger  så har den fundet den boat som der blev søgt efter, Tolover gør at stort eller småt skrift er ligemeget. de boats med den rigtige navn bliver lagt ned i ny boatresult liste
+				if (boats.Name.ToLower().Contains(name.ToLower())) boatResult.Add(boats); // hvis den aktuelle boats name matcher det name som vi giver som argument. add det til boatresult list
             }
 			return boatResult; // her giver den tilbage listen med alle de boat navne som vi har søft efter
         }
        
 
-        public Boat UpdateBoatRepo(Boat updatedBoat) // Opdatere en boat som der eksitere i repository via dens id 
+        public Boat UpdateBoat(Boat updatedBoat) // indeholder de opdaterede values til eksisterende Boat
 		{
-			Boat NewBoat = GetBoat(updatedBoat.Id);// Finder den specifikke boat som skal opdateres 
+			Boat NewBoat = GetBoat(updatedBoat.Id);// Finder den specifikke boat som skal opdateres ud fra get funktion
 			if(NewBoat != null) // Hvis newboat ikke er null(den findes) 
 			{						
-					NewBoat.Name = updatedBoat.Name;
+					NewBoat.Name = updatedBoat.Name;  // properties overskrives med den nye values fra updateboat
 					NewBoat.BoatType = updatedBoat.BoatType;
 					NewBoat.SailNumber = updatedBoat.SailNumber;
 					NewBoat.Description = updatedBoat.Description;
